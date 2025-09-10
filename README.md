@@ -1,2 +1,8 @@
-# heap
-Implementação de uma estrutura de dados Heap (Binary Heap) em Java. Inclui operações básicas como inserção, remoção e visualização da heap.
+#📦 Estrutura de Dados Heap
+
+Implementação completa de uma Heap Binária em Java. Este repositório contém:
+
+• Operações principais: insert(), extract(), peek() e buildHeap()
+• Funções auxiliares: heapify(), size(), isEmpty()
+• Suporte para Min-Heap e Max-Heap
+• Complexidade de tempo: O(log n) para inserção e remoção
