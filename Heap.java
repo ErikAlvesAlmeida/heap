@@ -11,7 +11,7 @@ public class Heap {
 
     //MÉTODOS PRINCIPAIS
     public void insert(int value){
-        if(this.size == this.capacity) throw new IllegalStateException("Heap Cheia!");
+        if(isFull()) throw new IllegalStateException("Heap Cheia!");
         heap[this.size] = value;
         int curr = this.size;
         this.size++;
@@ -23,12 +23,12 @@ public class Heap {
     }
 
     public int peek(){
-        if(this.size == 0) throw new IllegalStateException("Heap Vazia!");
+        if(isEmpty()) throw new IllegalStateException("Heap Vazia!");
         return heap[0];
     }
 
     public int extract(){
-        if(this.size == 0) throw new IllegalStateException("Heap Vazia!");
+        if(isEmpty()) throw new IllegalStateException("Heap Vazia!");
         int max = peek(); // pega o maior elemento;
         heap[0] = heap[this.size - 1]; // coloca o último valor na primeira casa;
         this.size--; // decrementa o size pra ele desconsiderar a última casa;
@@ -46,6 +46,14 @@ public class Heap {
     }
 
     //MÉTODOS AUXILIARES
+    private boolean isEmpty(){
+        return this.size == 0;
+    }
+
+    private boolean isFull(){
+        return this.size == this.capacity;
+    }
+
     private int parent(int i){
         return (i-1)/2;
     }
