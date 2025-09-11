@@ -3,7 +3,7 @@ public class PriorityQueue {
     private int capacity;
 
     public PriorityQueue() {
-        this.capacity = 100; // exemplo de default
+        this.capacity = 100; // default
         this.heap = new Heap(capacity);
     }
 
@@ -17,7 +17,7 @@ public class PriorityQueue {
         if (heap.isFull()) {
             throw new IllegalStateException("Fila cheia!");
         }
-        heap.insert(value); // seu método de adicionar no heap
+        heap.insert(value);
     }
 
     public int peek() {
