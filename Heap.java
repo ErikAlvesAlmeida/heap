@@ -46,11 +46,15 @@ public class Heap {
     }
 
     //MÉTODOS AUXILIARES
-    private boolean isEmpty(){
+    public int size(){
+        return this.size;
+    }
+
+    public boolean isEmpty(){
         return this.size == 0;
     }
 
-    private boolean isFull(){
+    public boolean isFull(){
         return this.size == this.capacity;
     }
 
