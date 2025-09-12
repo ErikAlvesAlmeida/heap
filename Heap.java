@@ -15,7 +15,7 @@ public class Heap {
         heap[this.size] = value;
         int curr = this.size;
         this.size++;
-        //heapfy-up. Vai corrigir subindo pra colocar o valor na posição correta. A complexidade disso é O(log n).
+        //heapify-up. Vai corrigir subindo pra colocar o valor na posição correta. A complexidade disso é O(log n).
         while(curr > 0 && heap[curr] > heap[parent(curr)]){
             swap(curr, parent(curr));
             curr = parent(curr);
@@ -32,7 +32,7 @@ public class Heap {
         int max = peek(); // pega o maior elemento;
         heap[0] = heap[this.size - 1]; // coloca o último valor na primeira casa;
         this.size--; // decrementa o size pra ele desconsiderar a última casa;
-        heapfy(0); // arruma o array de cima pra baixo;
+        heapify(0); // arruma o array de cima pra baixo;
         return max; // retorna o valor removido;
     }
 
@@ -41,8 +41,18 @@ public class Heap {
         this.heap = arr;
         this.size = arr.length;
         for(int i = parent(this.size - 1); i >= 0; i--){
-            heapfy(i);
+            heapify(i);
         }
+    }
+
+    public void sort(){
+        int initialSize = this.size;
+        for(int i = this.size-1; i >= 0; i--){
+            swap(0, i);
+            this.size--;
+            heapify(0);
+        }
+        this.size = initialSize;
     }
 
     //MÉTODOS AUXILIARES
@@ -70,7 +80,7 @@ public class Heap {
         return 2*i+2;
     }
 
-    private void heapfy(int i){
+    private void heapify(int i){
         int largest = i;
         int left = leftChild(i);
         int right = rightChild(i);
@@ -78,7 +88,7 @@ public class Heap {
         if(right < size && heap[right] > heap[largest]) largest = right;
         if(largest != i){
             swap(i, largest);
-            heapfy(largest);
+            heapify(largest);
         }
     }
 
